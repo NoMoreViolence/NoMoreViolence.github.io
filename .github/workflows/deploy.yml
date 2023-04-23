@@ -5,20 +5,6 @@ on:
     branches:
       - main
 
-inputs:
-  name:
-    description: 'Artifact name'
-    required: false
-    default: 'github-pages'
-  path:
-    description: "Path of the directory containing the static assets."
-    required: true
-    default: "dist/"
-  retention-days:
-    description: "Duration after which artifact will expire in days."
-    required: false
-    default: "1"
-
 jobs:
   Deploy-GitHub-Pages:
     runs-on: ubuntu-latest
@@ -30,7 +16,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: "16.x"
 
       - name: Build dependencies
         run: yarn build
@@ -49,12 +35,12 @@ jobs:
             --exclude=.github \
             .
         env:
-          INPUT_PATH: ${{ inputs.path }}
+          INPUT_PATH: "dist/"
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ inputs.name }}
+          name: "github-pages"
           path: ${{ runner.temp }}/artifact.tar
-          retention-days: ${{ inputs.retention-days }}
+          retention-days: 1
           if-no-files-found: error
