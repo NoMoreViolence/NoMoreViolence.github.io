@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: "16.x"
 
+      - name: Install dependencies
+        run: yarn install
+
       - name: Build dependencies
         run: yarn build
 
