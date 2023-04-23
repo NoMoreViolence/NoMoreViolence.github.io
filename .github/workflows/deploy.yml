@@ -11,19 +11,15 @@ jobs:
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0
-
       - uses: actions/checkout@v3
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "16.x"
-
       - name: Install dependencies
         run: yarn install
-
       - name: Build dependencies
         run: yarn build
-
       - name: Archive artifact
         shell: sh
         run: |
@@ -39,7 +35,6 @@ jobs:
             .
         env:
           INPUT_PATH: "dist/"
-
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
@@ -52,10 +47,10 @@ jobs:
     permissions:
       pages: write      # to deploy to Pages
       id-token: write   # to verify the deployment originates from an appropriate source
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
