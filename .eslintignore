@@ -1,4 +1,4 @@
 *.d.ts
 vite-env.d.ts
-!**/*/.prettierrc.js
-!.prettierrc.js
+!**/*/.prettierrc.cjs
+!.prettierrc.cjs

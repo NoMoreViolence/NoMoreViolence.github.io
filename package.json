@@ -3,6 +3,7 @@
   "version": "14.0.1",
   "license": "MIT",
   "packageManager": "yarn@4.0.2",
+  "type": "module",
   "scripts": {
     "prepare": "husky install",
     "pre-commit": "lint-staged",

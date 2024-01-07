@@ -42,7 +42,7 @@ module.exports = {
     },
     // Config files
     {
-      files: ['.eslintrc.cjs', '*.config.js', '*.config.cjs', '.prettierrc.js'],
+      files: ['.eslintrc.cjs', '*.config.js', '*.config.cjs', '.prettierrc.cjs'],
       env: { node: true },
       parser: '@babel/eslint-parser',
       extends: ['plugin:prettier/recommended'],
