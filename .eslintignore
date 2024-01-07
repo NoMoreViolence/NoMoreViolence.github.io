@@ -1,0 +1,4 @@
+*.d.ts
+vite-env.d.ts
+!**/*/.prettierrc.js
+!.prettierrc.js
